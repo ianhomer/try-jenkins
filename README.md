@@ -8,17 +8,29 @@ Try Jenkins
 
 Get default admin password
 
-    docker exec try-jenkins_jenkins_1 cat /opt/bitnami/jenkins/jenkins_home/secrets/initialAdminPassword | pbcopy
+    docker exec try-jenkins_jenkins_1 cat /var/jenkins_home/secrets/initialAdminPassword | pbcopy
 
-Visit http://localhost/ and log in with admin and default admin password
-    
-# extra
-    
+Visit http://localhost:8080/ and log in with admin and default admin password
+
+# extra  
+  
 Log into to node
     
     docker exec -it try-jenkins_jenkins_1 /bin/bash 
         
-Jenkins default admin password at /opt/bitnami/jenkins/jenkins_home/secrets/initialAdminPassword
+Jenkins default admin password at /var/jenkins_home/secrets/initialAdminPassword
+
+# one-liner start up
+
+```
+docker run \
+  --rm \
+  -u root \
+  -p 8080:8080 \
+  -v "jenkins-data:/var/jenkins_home" \
+  -v "/var/run/docker.sock:/var/run/docker.sock" \
+  -v "$HOME:/home"  jenkinsci/blueocean
+```
 
 # thanks
 
