@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="try-jenkins-hello" target="11" />
+      <module name="try-jenkins-hello" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
